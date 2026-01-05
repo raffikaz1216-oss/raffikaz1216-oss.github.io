@@ -7,6 +7,7 @@
 <body>
   <h1>🔐 管理者ログイン</h1>
 
+  <!-- ログイン画面 -->
   <div id="login">
     <p>PINを入力：</p>
     <input type="password" id="pin">
@@ -14,27 +15,39 @@
     <p id="error" style="color:red;"></p>
   </div>
 
+  <!-- 管理者画面 -->
   <div id="admin" style="display:none;">
     <h2>✅ 管理者パネル</h2>
     <p>ここは君だけが使う画面</p>
 
-    <textarea rows="5" cols="40">
-ここに新しいお知らせを書く（まだ保存機能なし）
-    </textarea>
+    <textarea id="text" rows="6" cols="40"
+      placeholder="ここにお知らせを書く"></textarea>
+    <br><br>
+    <button onclick="save()">保存</button>
+    <p id="saved" style="color:green;"></p>
   </div>
 
   <script>
-  const CORRECT_PIN = "R7k9M24!";
+    const CORRECT_PIN = "R7k9M24!"; // ★自分だけのPIN
 
-  function login() {
-    const pin = document.getElementById("pin").value;
-    if (pin === CORRECT_PIN) {
-      document.getElementById("login").style.display = "none";
-      document.getElementById("admin").style.display = "block";
-    } else {
-      document.getElementById("error").textContent = "PINが違う";
+    function login() {
+      const pin = document.getElementById("pin").value;
+      if (pin === CORRECT_PIN) {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("admin").style.display = "block";
+        // 保存済み内容を読み込み
+        document.getElementById("text").value =
+          localStorage.getItem("info") || "";
+      } else {
+        document.getElementById("error").textContent = "PINが違う";
+      }
     }
-  }
+
+    function save() {
+      const text = document.getElementById("text").value;
+      localStorage.setItem("info", text);
+      document.getElementById("saved").textContent = "保存した！";
+    }
   </script>
 </body>
 </html>
