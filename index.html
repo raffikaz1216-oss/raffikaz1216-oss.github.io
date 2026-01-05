@@ -1,11 +1,29 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>ぼくのサイト</title>
-</head>
-<body>
-  <h1>公開できた！！！</h1>
-  <p>GitHub Pages 最高！</p>
-</body>
-</html>
+<h2>サイト内検索</h2>
+
+<input
+  type="text"
+  id="searchInput"
+  placeholder="検索ワードを入力"
+  onkeyup="searchText()"
+  style="padding:8px; width:200px;"
+>
+
+<ul id="content">
+  <li>こんにちは</li>
+  <li>自己紹介</li>
+  <li>HTMLの勉強</li>
+  <li>GitHub Pages</li>
+  <li>検索バー作成</li>
+</ul>
+
+<script>
+function searchText() {
+  const input = document.getElementById("searchInput").value.toLowerCase();
+  const items = document.querySelectorAll("#content li");
+
+  items.forEach(item => {
+    const text = item.textContent.toLowerCase();
+    item.style.display = text.includes(input) ? "" : "none";
+  });
+}
+</script>
