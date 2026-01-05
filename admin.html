@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>管理者パネル</title>
+</head>
+<body>
+  <h1>🔐 管理者ログイン</h1>
+
+  <div id="login">
+    <p>PINを入力：</p>
+    <input type="password" id="pin">
+    <button onclick="login()">ログイン</button>
+    <p id="error" style="color:red;"></p>
+  </div>
+
+  <div id="admin" style="display:none;">
+    <h2>✅ 管理者パネル</h2>
+    <p>ここは君だけが使う画面</p>
+
+    <textarea rows="5" cols="40">
+ここに新しいお知らせを書く（まだ保存機能なし）
+    </textarea>
+  </div>
+
+  <script>
+    const CORRECT_PIN = "1234"; // ←あとで好きな数字に変えてOK
+
+    function login() {
+      const pin = document.getElementById("pin").value;
+      if (pin === CORRECT_PIN) {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("admin").style.display = "block";
+      } else {
+        document.getElementById("error").textContent = "PINが違う";
+      }
+    }
+  </script>
+</body>
+</html>
