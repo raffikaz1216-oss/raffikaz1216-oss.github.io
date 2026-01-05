@@ -2,68 +2,27 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>学校用フリーチャット（保存なし）</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      background: #f2f2f2;
-      padding: 20px;
-    }
-    #chat {
-      background: #fff;
-      padding: 10px;
-      height: 300px;
-      overflow-y: auto;
-      border-radius: 8px;
-      margin-bottom: 10px;
-    }
-    .msg {
-      margin-bottom: 6px;
-    }
-    input, button {
-      padding: 8px;
-      font-size: 14px;
-    }
-    #name {
-      width: 120px;
-    }
-    #text {
-      width: 60%;
-    }
-  </style>
+  <title>情報共有サイト</title>
 </head>
 <body>
+  <h1>📢 学校用 情報共有</h1>
+  <p>ここはみんなが見るページです。</p>
 
-<h2>学校用フリーチャット（保存されません）</h2>
+  <hr>
 
-<div id="chat"></div>
+  <h3>お知らせ</h3>
+  <ul id="info">
+    <li>テストは金曜日</li>
+    <li>提出物：レポート</li>
+  </ul>
 
-<input id="name" placeholder="名前">
-<input id="text" placeholder="メッセージ">
-<button onclick="send()">送信</button>
+  <hr>
 
-<p style="font-size:12px;color:#666;">
-※ ページを閉じると全部消えます
-</p>
-
-<script>
-  function send() {
-    const name = document.getElementById("name").value || "名無し";
-    const text = document.getElementById("text").value;
-    if (text === "") return;
-
-    const chat = document.getElementById("chat");
-    const div = document.createElement("div");
-    div.className = "msg";
-    div.textContent = name + "： " + text;
-
-    chat.appendChild(div);
-    chat.scrollTop = chat.scrollHeight;
-
-    document.getElementById("text").value = "";
-  }
-</script>
-
+  <p>
+    管理者はこちら →
+    <a href="admin.html">管理ページ</a>
+  </p>
 </body>
 </html>
+
 
