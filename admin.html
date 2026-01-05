@@ -24,17 +24,20 @@
   </div>
 
   <script>
-    const CORRECT_PIN = "1234"; // ←あとで好きな数字に変えてOK
+   <script>
+  const CORRECT_PIN = "R7k9M24!";
 
-    function login() {
-      const pin = document.getElementById("pin").value;
-      if (pin === CORRECT_PIN) {
-        document.getElementById("login").style.display = "none";
-        document.getElementById("admin").style.display = "block";
-      } else {
-        document.getElementById("error").textContent = "PINが違う";
-      }
+  function login() {
+    const pin = document.getElementById("pin").value;
+    if (pin === CORRECT_PIN) {
+      document.getElementById("login").style.display = "none";
+      document.getElementById("admin").style.display = "block";
+    } else {
+      document.getElementById("error").textContent = "PINが違う";
     }
+  }
+</script>
+
   </script>
 </body>
 </html>
